@@ -1,0 +1,10 @@
+package com.mobdeve.s12.group.snapit
+
+import androidx.recyclerview.widget.RecyclerView
+import com.mobdeve.s12.group.snapit.databinding.LayoutImageBinding
+
+class ImageViewHolder(private val viewBinding: LayoutImageBinding): RecyclerView.ViewHolder(viewBinding.root) {
+    fun bindData(imageData: ImageData){
+        this.viewBinding.mainMenuActivityImageIv.setImageResource(imageData.img_url)
+    }
+}

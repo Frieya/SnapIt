@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editTextText9"
+        android:id="@+id/title_etv"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -22,7 +22,7 @@
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:layout_weight="1"
-        android:src="@tools:sample/avatars" />
+        android:src="@drawable/leaf1" />
 
     <LinearLayout
         android:layout_width="360dp"
@@ -41,7 +41,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextText6"
+                    android:id="@+id/latitude_etv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -50,7 +50,7 @@
                     android:text="Name" />
 
                 <EditText
-                    android:id="@+id/editTextText7"
+                    android:id="@+id/longtitude_etv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -72,7 +72,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextText6"
+                    android:id="@+id/timestamp_etv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -81,7 +81,7 @@
                     android:text="Name" />
 
                 <EditText
-                    android:id="@+id/editTextText7"
+                    android:id="@+id/tag_etv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -101,7 +101,7 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/editTextText8"
+                android:id="@+id/description_etv"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:layout_weight="1"
