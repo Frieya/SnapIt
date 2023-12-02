@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mobdeve.s12.group.snapit"
+    namespace = "com.mobdeve.s12.kahitanonalang.snapit"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mobdeve.s12.group.snapit"
+        applicationId = "com.mobdeve.s12.kahitanonalang.snapit"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,10 +1,10 @@
-package com.mobdeve.s12.group.snapit
+package com.mobdeve.s12.kahitanonalang.snapit
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s12.group.snapit.databinding.ActivityMainmenuBinding
+import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
 
 
 class MainActivity : AppCompatActivity() {

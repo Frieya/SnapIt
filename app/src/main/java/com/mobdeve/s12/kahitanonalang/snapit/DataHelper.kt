@@ -1,4 +1,4 @@
-package com.mobdeve.s12.group.snapit
+package com.mobdeve.s12.kahitanonalang.snapit
 
 import java.util.Date
 

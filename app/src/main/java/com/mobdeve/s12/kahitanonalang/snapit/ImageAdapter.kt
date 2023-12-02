@@ -1,9 +1,9 @@
-package com.mobdeve.s12.group.snapit
+package com.mobdeve.s12.kahitanonalang.snapit
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.mobdeve.s12.group.snapit.databinding.LayoutImageBinding
+import com.mobdeve.s12.kahitanonalang.snapit.databinding.LayoutImageBinding
 
 class ImageAdapter(private val data: ArrayList<ImageData>): Adapter<ImageViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
