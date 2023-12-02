@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginPasswordEtv : EditText
     private lateinit var loginBtn : Button
     private lateinit var messageTv : TextView
+    private lateinit var signupTv : TextView
 
     private lateinit var credentials : SharedPreferences
 
@@ -41,12 +42,18 @@ class LoginActivity : AppCompatActivity() {
         this.loginPasswordEtv = this.viewBinding.loginPasswordEtv
         this.loginBtn = this.viewBinding.loginBtn
         this.messageTv = this.viewBinding.loginMessageTv
+        this.signupTv = this.viewBinding.loginSunTv
         this.auth = FirebaseAuth.getInstance()
 
         this.credentials = getSharedPreferences(SP_FILE_NAME, Context.MODE_PRIVATE)
 
         this.loginUsernameEtv.setText(this.credentials.getString(USERNAME_KEY, ""))
         this.loginPasswordEtv.setText(this.credentials.getString(PASSWORD_KEY, ""))
+
+        this.signupTv.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+        }
 
         this.loginBtn.setOnClickListener {
             val email = loginUsernameEtv.text.toString() + "@gmail.com"
@@ -87,8 +94,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun setMessage(error : String) {
-        this.messageTv.text = error
+    private fun setMessage(message : String) {
+        this.messageTv.text = message
     }
 
     private fun resetMessage() {
