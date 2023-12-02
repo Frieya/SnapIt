@@ -1,6 +1,7 @@
 package com.mobdeve.s12.group.snapit
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -41,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
 
         this.loginBtn.setOnClickListener {
             savePreferences()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
