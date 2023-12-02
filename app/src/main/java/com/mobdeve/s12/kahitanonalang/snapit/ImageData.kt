@@ -1,6 +1,5 @@
-package com.mobdeve.s12.group.snapit
+package com.mobdeve.s12.kahitanonalang.snapit
 
-import android.media.Image
 import java.util.Date
 
 

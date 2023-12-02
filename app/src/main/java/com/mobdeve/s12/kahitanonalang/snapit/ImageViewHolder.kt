@@ -1,7 +1,7 @@
-package com.mobdeve.s12.group.snapit
+package com.mobdeve.s12.kahitanonalang.snapit
 
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s12.group.snapit.databinding.LayoutImageBinding
+import com.mobdeve.s12.kahitanonalang.snapit.databinding.LayoutImageBinding
 
 class ImageViewHolder(private val viewBinding: LayoutImageBinding): RecyclerView.ViewHolder(viewBinding.root) {
     fun bindData(imageData: ImageData){

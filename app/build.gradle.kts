@@ -1,14 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.mobdeve.s12.group.snapit"
+    namespace = "com.mobdeve.s12.kahitanonalang.snapit"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mobdeve.s12.group.snapit"
+        applicationId = "com.mobdeve.s12.kahitanonalang.snapit"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -69,4 +70,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
 }
