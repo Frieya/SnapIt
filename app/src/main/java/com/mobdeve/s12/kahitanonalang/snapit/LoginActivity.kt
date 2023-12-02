@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var signupTv : TextView
 
     private lateinit var credentials : SharedPreferences
+    private lateinit var toaster : Toaster
 
     private lateinit var auth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +43,8 @@ class LoginActivity : AppCompatActivity() {
         this.loginUsernameEtv = this.viewBinding.loginUsernameEtv
         this.loginPasswordEtv = this.viewBinding.loginPasswordEtv
         this.loginBtn = this.viewBinding.loginBtn
-        this.messageTv = this.viewBinding.loginMessageTv
         this.signupTv = this.viewBinding.loginSunTv
+        this.toaster = Toaster(this)
         this.auth = FirebaseAuth.getInstance()
 
         this.credentials = getSharedPreferences(SP_FILE_NAME, Context.MODE_PRIVATE)
@@ -59,47 +61,34 @@ class LoginActivity : AppCompatActivity() {
             val email = loginUsernameEtv.text.toString() + "@gmail.com"
             val password = loginPasswordEtv.text.toString()
 
-            resetMessage()
-
-            // Check if email and password are not empty
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                setMessage("Checking credentials...")
-                // Sign in with email and password
+                toaster.crisp("Checking credentials...")
+
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             saveCredentials()
                             val user = auth.currentUser
-                            // Navigate to the main activity or perform additional actions
+
+                            // Navigate to the main activity
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
-                            // Handle specific exceptions if needed
                             if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                                setMessage("No credentials found")
+                                toaster.crisp("Account not found.")
                             } else {
-                                // Handle other exceptions
-                                // Show a generic error message or take appropriate action
+                                toaster.crisp("Unhandled error: ${task.exception?.message}")
                             }
                         }
                     }
             } else {
-                setMessage("Username and password cannot be empty")
+                toaster.crisp("Username and password cannot be empty.")
             }
         }
-    }
-
-    private fun setMessage(message : String) {
-        this.messageTv.text = message
-    }
-
-    private fun resetMessage() {
-        setMessage("")
     }
 
     private fun saveCredentials() {
@@ -108,5 +97,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString(PASSWORD_KEY, this.loginPasswordEtv.text.toString())
         editor.apply()
     }
+
+
 }
 
