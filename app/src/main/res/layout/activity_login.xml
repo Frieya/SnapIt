@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_cl"
+    android:id="@+id/signup_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cameraman"
@@ -17,12 +17,12 @@
         android:text="@string/app_name_ul"
         android:textColor="@color/black"
         android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_card_cl"
-        app:layout_constraintEnd_toEndOf="@+id/login_card_cl"
-        app:layout_constraintStart_toStartOf="@+id/login_card_cl" />
+        app:layout_constraintBottom_toTopOf="@+id/signup_card_cl"
+        app:layout_constraintEnd_toEndOf="@+id/signup_card_cl"
+        app:layout_constraintStart_toStartOf="@+id/signup_card_cl" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_card_cl"
+        android:id="@+id/signup_card_cl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -39,10 +39,10 @@
             android:id="@+id/login_card_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/maharlika"
             android:gravity="center"
-            android:text="Login"
+            android:text="Log In"
             android:textColor="@color/white"
 
             android:textSize="34sp"
@@ -91,7 +91,7 @@
         <Button
             android:id="@+id/login_btn"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -100,20 +100,25 @@
             android:fontFamily="@font/alegreya"
             android:text="Login"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/login_error_tv"
+            app:layout_constraintBottom_toTopOf="@+id/login_message_tv"
             app:layout_constraintEnd_toEndOf="@+id/login_password_etv"
             app:layout_constraintStart_toStartOf="@+id/login_password_etv"
             app:layout_constraintTop_toBottomOf="@+id/login_password_etv" />
 
         <TextView
-            android:id="@+id/login_error_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/login_message_tv"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="10dp"
-            android:visibility="invisible"
+            android:textAlignment="center"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -126,7 +131,7 @@
         android:text="Not Yet Registered?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_card_cl" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_card_cl" />
 
     <TextView
         android:id="@+id/login_sun_tv"
@@ -134,7 +139,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya"
         android:gravity="center"
-        android:text="Sign Up Now"
+        android:text="@string/sign_up_now"
         app:layout_constraintEnd_toEndOf="@+id/login_nyr_tv"
         app:layout_constraintStart_toStartOf="@+id/login_nyr_tv"
         app:layout_constraintTop_toBottomOf="@+id/login_nyr_tv" />
