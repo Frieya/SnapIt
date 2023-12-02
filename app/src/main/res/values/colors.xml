@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="custom1">#D8E0BB</color>
     <color name="custom2">#7268A6</color>
-
+    <color name="card">#86a3c3</color>
+    <color name="background1">#b6c6c7</color>
+    <color name="background2">#d8e0bb</color>
 </resources>
