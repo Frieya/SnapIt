@@ -3,6 +3,6 @@ package com.mobdeve.s12.kahitanonalang.snapit
 import java.util.Date
 
 
-class ImageData(var title: String, var img_url: Int,
+class ImageData(var title: String, var imgUrl: Int,
                 var latitude: Float, var longtitude: Float,
-                var taken_date: Date, var description: String)
+                var takenDate: Date, var description: String)

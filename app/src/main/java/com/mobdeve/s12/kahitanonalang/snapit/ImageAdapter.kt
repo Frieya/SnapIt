@@ -16,7 +16,7 @@ class ImageAdapter(private val data: ArrayList<ImageData>): Adapter<ImageViewHol
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        holder.bindData(this.data.get(position))
+        holder.bindData(this.data[position])
     }
 
     override fun getItemCount(): Int {
