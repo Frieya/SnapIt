@@ -16,10 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.viewBinding = ActivityMainmenuBinding.inflate(layoutInflater)
         setContentView(this.viewBinding.root)
-        this.imageDataList = DataHelper.generateDummyData()
 
+        this.imageDataList = DataHelper.generateDummyData()
         this.recyclerView = findViewById(R.id.mainmenu_image_rv)
         this.imageAdapter = ImageAdapter(this.imageDataList)
+
         this.recyclerView.adapter = imageAdapter
 
         val layoutManager = GridLayoutManager(this, 2)

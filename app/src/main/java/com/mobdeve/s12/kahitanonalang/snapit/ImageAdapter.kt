@@ -15,7 +15,7 @@ class ImageAdapter(private val data: ArrayList<ImageData>): Adapter<ImageViewHol
         return ImageViewHolder(layoutImageBinding)
     }
 
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ImageViewHolder, position: Int)    {
         holder.bindData(this.data[position])
     }
 
