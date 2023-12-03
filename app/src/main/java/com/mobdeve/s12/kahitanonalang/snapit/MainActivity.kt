@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, 2)
         this.recyclerView.layoutManager = layoutManager
 
+        val greeting = "Hello, ${intent.getStringExtra("username")}"
+        this.viewBinding.mainmenuGreetingTv.text = greeting
     }
 }
 

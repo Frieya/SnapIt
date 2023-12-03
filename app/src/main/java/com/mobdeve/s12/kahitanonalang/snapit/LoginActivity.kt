@@ -69,10 +69,11 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "signInWithEmail:success")
                             saveCredentials()
-                            val user = auth.currentUser
+                            val username = auth.currentUser?.email?.replace("@gmail.com", "")
 
                             // Navigate to the main activity
                             val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("username", username)
                             startActivity(intent)
                             finish()
                         } else {
