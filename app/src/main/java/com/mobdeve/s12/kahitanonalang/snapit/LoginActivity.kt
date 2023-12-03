@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginUsernameEtv : EditText
     private lateinit var loginPasswordEtv : EditText
     private lateinit var loginBtn : Button
-    private lateinit var messageTv : TextView
     private lateinit var signupTv : TextView
 
     private lateinit var credentials : SharedPreferences
@@ -69,15 +68,13 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "signInWithEmail:success")
                             saveCredentials()
-                            val username = auth.currentUser?.email?.replace("@gmail.com", "")
+                            val auth = auth.currentUser
 
-                            // Navigate to the main activity
                             val intent = Intent(this, MainActivity::class.java)
-                            intent.putExtra("username", username)
+                            intent.putExtra("auth", auth)
                             startActivity(intent)
                             finish()
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
                             if (task.exception is FirebaseAuthInvalidCredentialsException) {
                                 toaster.crisp("Account not found.")

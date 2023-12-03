@@ -2,27 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_cl"
+    android:id="@+id/edit_profile_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cameraman"
     android:gravity="center">
 
-    <TextView
-        android:id="@+id/login_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/maharlika"
-        android:gravity="center"
-        android:text="@string/app_name_ul"
-        android:textColor="@color/black"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_card_cl"
-        app:layout_constraintEnd_toEndOf="@+id/login_card_cl"
-        app:layout_constraintStart_toStartOf="@+id/login_card_cl" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_card_cl"
+        android:id="@+id/edit_profile_card_cl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -36,13 +23,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/login_card_title_tv"
+            android:id="@+id/edit_profile_card_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/maharlika"
             android:gravity="center"
-            android:text="Log In"
+            android:text="Change Password"
             android:textColor="@color/white"
 
             android:textSize="34sp"
@@ -51,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/login_username_etv"
+            android:id="@+id/edit_profile_password_etv"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
@@ -60,36 +47,37 @@
             android:background="@drawable/input_background"
             android:ems="10"
             android:fontFamily="@font/alegreya"
-            android:hint="Username"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_card_title_tv" />
-
-        <EditText
-            android:id="@+id/login_password_etv"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/input_background"
-            android:ems="10"
-            android:fontFamily="@font/alegreya"
-            android:hint="Password"
+            android:hint="New Password"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_username_etv" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_card_title_tv" />
+
+        <EditText
+            android:id="@+id/edit_profile_confirm_password_etv"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/input_background"
+            android:ems="10"
+            android:fontFamily="@font/alegreya"
+            android:hint="Old Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_password_etv" />
 
         <Button
-            android:id="@+id/login_btn"
+            android:id="@+id/edit_profile_btn"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -99,36 +87,13 @@
             android:background="@drawable/input_background"
             android:backgroundTint="@color/background2"
             android:fontFamily="@font/alegreya"
-            android:text="Login"
+            android:text="save"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/login_password_etv"
-            app:layout_constraintStart_toStartOf="@+id/login_password_etv"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_etv" />
+            app:layout_constraintEnd_toEndOf="@+id/edit_profile_password_etv"
+            app:layout_constraintStart_toStartOf="@+id/edit_profile_password_etv"
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_confirm_password_etv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/login_nyr_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/alegreya"
-        android:gravity="center"
-        android:text="Not Yet Registered?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_card_cl" />
-
-    <TextView
-        android:id="@+id/login_sun_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/alegreya"
-        android:gravity="center"
-        android:text="@string/sign_up_now"
-        app:layout_constraintEnd_toEndOf="@+id/login_nyr_tv"
-        app:layout_constraintStart_toStartOf="@+id/login_nyr_tv"
-        app:layout_constraintTop_toBottomOf="@+id/login_nyr_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,6 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var signUpUsernameEtv : EditText
     private lateinit var signupPasswordEtv : EditText
     private lateinit var signupBtn : Button
-    private lateinit var messageTv : TextView
     private lateinit var signupTv : TextView
 
     private lateinit var toaster: Toaster
