@@ -15,8 +15,7 @@ class DataHelper {
                     144.11F,
                     121.01F,
                     Date(2023, 1,1),
-                    null.toString()
-
+                    "leaf1 desc"
                 ))
 
                 data.add(ImageData(
@@ -25,7 +24,7 @@ class DataHelper {
                     144.11F,
                     121.01F,
                     Date(2023, 1,1),
-                    null.toString()
+                    "leaf2 desc"
 
                 ))
 
@@ -35,7 +34,7 @@ class DataHelper {
                     144.11F,
                     121.01F,
                     Date(2023, 1,1),
-                    null.toString()
+                    "leaf3 desc"
 
                 ))
 
@@ -45,7 +44,7 @@ class DataHelper {
                     144.11F,
                     121.01F,
                     Date(2023, 1,1),
-                    null.toString()
+                    "leaf4 desc"
 
                 ))
             }
