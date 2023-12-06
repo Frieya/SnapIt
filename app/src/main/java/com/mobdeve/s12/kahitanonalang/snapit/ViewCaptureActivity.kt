@@ -1,6 +1,9 @@
 package com.mobdeve.s12.kahitanonalang.snapit
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -25,7 +28,7 @@ class ViewCaptureActivity : AppCompatActivity() {
 
         val intent = intent
 
-        this.dbHelper.getImageFromDocumentId(intent.getStringExtra(ImageData.keyImgUrl)!!,
+        this.dbHelper.getImageFromDocumentId(intent.getStringExtra("DOC_ID")!!,
             object : DatabaseHelper.SingleImageDataCallback {
                 override fun onSingleImageDataLoaded(image: ImageData) {
                     titleTv.text = image.title
@@ -38,5 +41,26 @@ class ViewCaptureActivity : AppCompatActivity() {
                 }
             }
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.view_image_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                true
+            }
+            R.id.action_delete -> {
+                true
+            }
+            R.id.action_download -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -7,7 +7,7 @@
     android:background="@color/background2"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/newcapture_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,66 +16,56 @@
         android:orientation="vertical"
         android:paddingBottom="20dp">
 
+        <ImageView
+            android:id="@+id/newcapture_image_iv"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/leaf3" />
+
+        <EditText
+            android:id="@+id/newcapture_title_tv"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input_background"
+            android:fontFamily="@font/alegreya"
+            android:gravity="center"
+            android:hint="Title"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/newcapture_description_tv"
+            android:layout_width="360dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/input_background"
+            android:fontFamily="@font/alegreya"
+            android:gravity="start"
+            android:hint="Description"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/newcapture_save_btn"
-            android:layout_width="0dp"
+            android:layout_width="240dp"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/input_background"
             android:backgroundTint="@color/custom2"
             android:fontFamily="@font/alegreya"
             android:text="save"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newcapture_description_tv" />
+            android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/newcapture_title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/alegreya"
-            android:hint="Title"
-            android:background="@drawable/input_background"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/newcapture_image_iv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/leaf3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newcapture_title_tv" />
-
-        <EditText
-            android:id="@+id/newcapture_description_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/input_background"
-            android:fontFamily="@font/alegreya"
-            android:hint="Description"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newcapture_image_iv" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>

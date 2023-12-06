@@ -3,4 +3,7 @@
     <string name="app_name_ul"><u>SnapIt</u></string>
     <string name="sign_up_now"><u>Sign Up Now</u></string>
     <string name="login_here"><u>Log In Here</u></string>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>

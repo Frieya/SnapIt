@@ -71,9 +71,29 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Firebase Realtime Database
+    implementation ("com.google.firebase:firebase-database-ktx:20.0.4")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+
+    // Cloud Firestore
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.1.1")
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+
+    // Firebase Auth
+    implementation ("com.google.firebase:firebase-auth-ktx:21.0.3")
+    implementation ("com.firebaseui:firebase-ui-auth:8.0.2")
+
+    // Cloud Storage
+    implementation ("com.google.firebase:firebase-storage-ktx:20.0.1")
+    implementation ("com.firebaseui:firebase-ui-storage:8.0.2")
+
+    // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
-    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-    implementation("com.google.firebase:firebase-firestore")
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
+
+
 }

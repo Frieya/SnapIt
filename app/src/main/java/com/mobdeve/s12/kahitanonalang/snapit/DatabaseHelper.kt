@@ -6,8 +6,10 @@ import android.util.Base64
 import android.util.Log
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
 import java.io.ByteArrayInputStream
+
 
 class DatabaseHelper() {
     private var db = Firebase.firestore
@@ -85,6 +87,13 @@ class DatabaseHelper() {
                 Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.id)
             }
             .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+    }
+
+    fun getImageQuery(): Query {
+        val query = db
+            .collection("SampleImage")
+            .orderBy("timestamp")
+        return query
     }
 
     fun stringToBitmap(encodedString: String): Bitmap? {

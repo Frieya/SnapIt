@@ -27,7 +27,7 @@ import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
 import java.io.File
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MyImagesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var viewBinding : ActivityMainmenuBinding
     private lateinit var imageDataList : ArrayList<ImageData>
     private lateinit var recyclerView : RecyclerView
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_home -> {
-                val mainActivityIntent = Intent(this, MainActivity::class.java)
+                val mainActivityIntent = Intent(this, MyImagesActivity::class.java)
                 mainActivityIntent.putExtra("auth", this.user)
                 startActivity(mainActivityIntent)
                 true
