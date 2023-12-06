@@ -44,86 +44,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_capture_title_tv" />
 
-        <TableLayout
-            android:id="@+id/view_capture_tl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:stretchColumns="0, 1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_capture_image_iv">
-
-            <TableRow
-                android:id="@+id/view_capture_tr01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/view_capture_longitude_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:fontFamily="@font/alegreya"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="Longitude"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/view_capture_latitude_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:fontFamily="@font/alegreya"
-                    android:text="Latitude"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/view_capture_tr02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/view_capture_timestamp_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginRight="5dp"
-                    android:fontFamily="@font/alegreya"
-                    android:text="Timestamp"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/view_capture_tags_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/alegreya"
-                    android:text="Tags"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-            </TableRow>
-
-        </TableLayout>
-
         <TextView
             android:id="@+id/view_capture_description_tv"
             android:layout_width="0dp"
@@ -132,14 +52,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/input_background"
+            android:fontFamily="@font/alegreya"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:fontFamily="@font/alegreya"
             android:text="Description"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_capture_tl" />
+            app:layout_constraintTop_toBottomOf="@+id/view_capture_image_iv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

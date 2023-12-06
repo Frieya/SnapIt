@@ -23,10 +23,6 @@ class ImageAdapter(private val data: ArrayList<ImageData>): Adapter<ImageViewHol
             val intent = Intent(context, ViewCaptureActivity::class.java)
             intent.putExtra(ImageData.keyTitle, this.data[position].title)
             intent.putExtra(ImageData.keyImgUrl, this.data[position].imgUrl)
-            intent.putExtra(ImageData.keyLatitude, this.data[position].latitude)
-            intent.putExtra(ImageData.keyLongitude, this.data[position].longtitude)
-            intent.putExtra(ImageData.keyDate, this.data[position].takenDate)
-            intent.putExtra(ImageData.keyTags, this.data[position].tags)
             intent.putExtra(ImageData.keyDescription, this.data[position].description)
             context.startActivity(intent)
         }

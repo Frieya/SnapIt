@@ -1,9 +1,6 @@
 package com.mobdeve.s12.kahitanonalang.snapit
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity

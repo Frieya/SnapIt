@@ -44,86 +44,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newcapture_title_tv" />
 
-        <TableLayout
-            android:id="@+id/newcapture_tl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:stretchColumns="0, 1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newcapture_image_iv">
-
-            <TableRow
-                android:id="@+id/newcapture_tr01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/newcapture_longitude_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/input_background"
-                    android:fontFamily="@font/alegreya"
-                    android:hint="Longitude"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/newcapture_latitude_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/alegreya"
-                    android:hint="Latitude"
-                    android:textAlignment="center"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textSize="20sp" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/newcapture_tr02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/newcapture_timestamp_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:fontFamily="@font/alegreya"
-                    android:hint="Timestamp"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/newcapture_tags_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/alegreya"
-                    android:background="@drawable/input_background"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:hint="Tags"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-            </TableRow>
-
-        </TableLayout>
-
         <EditText
             android:id="@+id/newcapture_description_tv"
             android:layout_width="0dp"
@@ -131,15 +51,15 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/alegreya"
             android:background="@drawable/input_background"
+            android:fontFamily="@font/alegreya"
+            android:hint="Description"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="Description"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newcapture_tl" />
+            app:layout_constraintTop_toBottomOf="@+id/newcapture_image_iv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

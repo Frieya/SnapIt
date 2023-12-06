@@ -1,8 +1,6 @@
 package com.mobdeve.s12.kahitanonalang.snapit
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -11,24 +9,16 @@ import android.os.StrictMode
 import android.util.Base64
 import android.util.Log
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.FileProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityNewcaptureBinding
 import java.io.ByteArrayOutputStream
-import java.io.File
 
 
 class CaptureActivity : AppCompatActivity() {
     private lateinit var viewBinding_Capture: ActivityNewcaptureBinding
-    private lateinit var takePictureLauncher: ActivityResultLauncher<Uri>
 
     companion object {
         const val URL = ""
@@ -51,7 +41,7 @@ class CaptureActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
-        getBitmapToString(viewBinding_Capture.ivTaken, fileUri)
+        getBitmapToString(viewBinding_Capture.newcaptureImageIv, fileUri)
     }
 
 
@@ -70,18 +60,6 @@ class CaptureActivity : AppCompatActivity() {
         }
         val rq = Volley.newRequestQueue(this)
         rq.add(request)
-    }
-
-    fun createUrl(): Uri {
-        var imageFile = File.createTempFile("tmp_image_file", ".jpg", cacheDir).apply {
-            createNewFile()
-            deleteOnExit()
-        }
-        return FileProvider.getUriForFile(
-           applicationContext,
-            "com.mobdeve.s12.kahitanonalang.snapit.provider",
-            imageFile
-        )
     }
 
     fun bitmapToString(bmp : Bitmap): String {

@@ -4,14 +4,10 @@ import android.Manifest
 import android.net.Uri
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.StrictMode
-import android.util.Base64
 import android.util.Log
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -23,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseUser
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
-import java.io.ByteArrayOutputStream
 import java.io.File
 
 
