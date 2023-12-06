@@ -3,6 +3,8 @@ package com.mobdeve.s12.kahitanonalang.snapit
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.media.ExifInterface
 import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
@@ -77,6 +79,29 @@ class CaptureActivity : AppCompatActivity() {
         Log.v("uri:", "${uri}")
         val inputStream = contentResolver.openInputStream(uri)
         var bmp = BitmapFactory.decodeStream(inputStream)
+        val currentPhotoUri = fileUri
+        var orientation = -1
+        currentPhotoUri?.let { uri ->
+            val inputStream = contentResolver.openInputStream(uri)
+            val exif = try {
+                ExifInterface(inputStream!!)
+            } catch (e: Exception) {
+                null
+            }
+            ExifInterface.ORIENTATION_FLIP_HORIZONTAL
+            orientation = exif?.getAttributeInt(
+                ExifInterface.TAG_ORIENTATION,
+                ExifInterface.ORIENTATION_NORMAL
+            ) ?: ExifInterface.ORIENTATION_NORMAL
+
+            Log.d("Image Orientation", "$orientation")
+        }
+        val rotate : Float = when (orientation) {
+            6 -> 90f
+            3 -> 180f
+            else -> 0f
+        }
+        Log.d("Image Orientation", "$rotate")
         var dim = 512
         if (bmp.height > bmp.width){
             bmp = Bitmap.createScaledBitmap(
@@ -94,6 +119,17 @@ class CaptureActivity : AppCompatActivity() {
                 true
             )
         }
+        val matrix = Matrix()
+        matrix.postRotate(rotate)
+        bmp = Bitmap.createBitmap(
+            bmp,
+            0,
+            0,
+            bmp.width,
+            bmp.height,
+            matrix,
+            true
+        )
         imV.setImageBitmap(bmp)
         return bitmapToString(bmp)
 
