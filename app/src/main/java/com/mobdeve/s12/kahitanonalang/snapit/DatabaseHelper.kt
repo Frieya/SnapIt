@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.Log
 import com.google.firebase.Firebase
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import java.io.ByteArrayInputStream
 
@@ -71,6 +72,20 @@ class DatabaseHelper() {
             }
     }
 
+    fun addImage(title: String ,  image: String,  description: String){
+        val data: MutableMap<String, Any?> = HashMap()
+        data["title"] = title
+        data["image"] = image
+        data["description"] = description
+        data["timestamp"] = FieldValue.serverTimestamp()
+
+        // Send the data off to the Message collection
+        this.db.collection("SampleImage").add(data)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.id)
+            }
+            .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+    }
 
     fun stringToBitmap(encodedString: String): Bitmap? {
         try {

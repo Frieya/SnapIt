@@ -43,7 +43,16 @@ class CaptureActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
-        getBitmapToString(viewBinding_Capture.newcaptureImageIv, fileUri)
+        imstr = getBitmapToString(viewBinding_Capture.newcaptureImageIv, fileUri)
+        var db = DatabaseHelper()
+        viewBinding_Capture.newcaptureSaveBtn.setOnClickListener{
+            var title = viewBinding_Capture.newcaptureTitleTv.text.toString()
+            var description = viewBinding_Capture.newcaptureDescriptionTv.text.toString()
+            db.addImage(title, imstr,description)
+            val captureIntent = Intent(this, MainActivity::class.java)
+            captureIntent.putExtra("auth", this.user)
+            startActivity(captureIntent)
+        }
     }
 
 
