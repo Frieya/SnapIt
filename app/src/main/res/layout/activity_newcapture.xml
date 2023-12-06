@@ -1,132 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/custom1">
-
-    <EditText
-        android:id="@+id/title_etv"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        android:fontFamily="@font/alegreya"/>
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_weight="1"
-        android:src="@drawable/leaf1" />
+    android:background="@color/custom1"
+    android:gravity="center">
 
     <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <EditText
+            android:id="@+id/title_etv"
+            android:layout_width="272dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:fontFamily="@font/alegreya"
+            android:inputType="text"
+            android:text="Name" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/iv_taken"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_weight="1"
+            android:src="@drawable/leaf1" />
 
-                <EditText
-                    android:id="@+id/latitude_etv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    android:fontFamily="@font/alegreya"/>
-
-                <EditText
-                    android:id="@+id/longtitude_etv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    android:fontFamily="@font/alegreya"/>
-            </LinearLayout>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/timestamp_etv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    android:fontFamily="@font/alegreya"/>
-
-                <EditText
-                    android:id="@+id/tag_etv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    android:fontFamily="@font/alegreya"/>
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableRow>
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/description_etv"
+                    <EditText
+                        android:id="@+id/latitude_etv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/alegreya"
+                        android:inputType="text"
+                        android:text="Name" />
+
+                    <EditText
+                        android:id="@+id/longtitude_etv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/alegreya"
+                        android:inputType="text"
+                        android:text="Name" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Name"
-                android:fontFamily="@font/alegreya"/>
-        </TableRow>
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/timestamp_etv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/alegreya"
+                        android:inputType="text"
+                        android:text="Name" />
+
+                    <EditText
+                        android:id="@+id/tag_etv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/alegreya"
+                        android:inputType="text"
+                        android:text="Name" />
+                </LinearLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/description_etv"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:fontFamily="@font/alegreya"
+                    android:inputType="text"
+                    android:text="Name" />
+            </TableRow>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/custom2"
+            android:fontFamily="@font/alegreya"
+            android:text="Button"
+            android:textColor="@color/white" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button"
-        android:background="@color/custom2"
-        android:textColor="@color/white"
-        android:fontFamily="@font/alegreya"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
