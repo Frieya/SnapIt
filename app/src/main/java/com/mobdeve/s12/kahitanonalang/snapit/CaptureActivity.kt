@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.auth.FirebaseAuth
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityNewcaptureBinding
 import java.io.ByteArrayOutputStream
 
@@ -42,7 +43,8 @@ class CaptureActivity : AppCompatActivity() {
         catch (e: Exception){
             e.printStackTrace()
         }
-
+        var user = FirebaseAuth.getInstance().currentUser
+        Log.v("Image User:", user?.displayName.toString())
         imstr = getBitmapToString(viewBinding_Capture.newcaptureImageIv, fileUri)
         var db = DatabaseHelper()
         viewBinding_Capture.newcaptureSaveBtn.setOnClickListener{
@@ -50,8 +52,8 @@ class CaptureActivity : AppCompatActivity() {
             var description = viewBinding_Capture.newcaptureDescriptionTv.text.toString()
             db.addImage(title, imstr,description)
             val captureIntent = Intent(this, MainActivity::class.java)
-            captureIntent.putExtra("auth", this.user)
-            startActivity(captureIntent)
+            setResult(RESULT_OK, captureIntent)
+            finish()
         }
     }
 
