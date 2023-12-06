@@ -17,7 +17,11 @@ import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.Firebase
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
 import java.io.File
 
@@ -31,14 +35,35 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newCaptureBtn : FloatingActionButton
 
     private lateinit var user : FirebaseUser
+    private lateinit var dbHelper : DatabaseHelper
 
     private lateinit var takePictureLauncher: ActivityResultLauncher<Uri>
+
+    private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.viewBinding = ActivityMainmenuBinding.inflate(layoutInflater)
         setContentView(this.viewBinding.root)
 
-        this.imageDataList = DataHelper.generateDummyData()
+//        this.imageDataList = DataHelper.generateDummyData()
+        this.imageDataList = ArrayList()
+        this.dbHelper = DatabaseHelper()
+        dbHelper.getImages(object : DatabaseHelper.ImageDataCallback {
+            override fun onImageDataLoaded(images: ArrayList<ImageData>) {
+                // Update your UI or perform any other action with the loaded images
+                imageDataList.clear()
+                imageDataList.addAll(images)
+                imageAdapter.notifyDataSetChanged()
+            }
+
+            override fun onImageDataLoadFailed(error: Throwable) {
+                // Handle the error, for example, show a toast message
+                Toast.makeText(this@MainActivity, "Error loading images", Toast.LENGTH_SHORT).show()
+            }
+        })
+        Log.d("bitmap", this.imageDataList.toString())
+
+//        this.imageDataList.add(ImageData("test", ))
         this.recyclerView = findViewById(R.id.mainmenu_image_rv)
         this.imageAdapter = ImageAdapter(this.imageDataList)
         this.editProfileBtn = this.viewBinding.mainmenuEditProfileBtn

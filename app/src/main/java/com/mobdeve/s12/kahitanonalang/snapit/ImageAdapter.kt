@@ -21,9 +21,7 @@ class ImageAdapter(private val data: ArrayList<ImageData>): Adapter<ImageViewHol
         holder.itemView.setOnClickListener {
             val context = it.context
             val intent = Intent(context, ViewCaptureActivity::class.java)
-            intent.putExtra(ImageData.keyTitle, this.data[position].title)
             intent.putExtra(ImageData.keyImgUrl, this.data[position].imgUrl)
-            intent.putExtra(ImageData.keyDescription, this.data[position].description)
             context.startActivity(intent)
         }
     }
