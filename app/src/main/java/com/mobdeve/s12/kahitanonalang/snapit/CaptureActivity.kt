@@ -32,8 +32,8 @@ class CaptureActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var imageAdapter: ImageAdapter
     private lateinit var takePictureLauncher: ActivityResultLauncher<Uri>
+    private lateinit var imageDatabase: ImageDatabase
 
-    private lateinit var  mediaHelper: MediaHelper
 
     companion object {
         const val URL = ""
@@ -58,12 +58,17 @@ class CaptureActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
-        mediaHelper = MediaHelper()
+
         registerPictureLauncher()
         fileUri = createUrl()
-
+        imageDatabase = ImageDatabase()
         viewBinding_Capture.ivTaken.setOnClickListener{
             checkCameraPermissionAndOpenCamera()
+        }
+        viewBinding_Capture.btnSave.setOnClickListener{
+            var title = viewBinding_Capture.titleEtv.text.toString()
+            var description = viewBinding_Capture.descriptionEtv.text.toString()
+            imageDatabase.addImage(title, imstr,description)
         }
     }
 
@@ -90,7 +95,7 @@ class CaptureActivity : AppCompatActivity() {
             if (done) {
                 viewBinding_Capture.ivTaken.setImageURI(null)
                 Log.v("uri:", "${fileUri.path}")
-                getBitmapToString(viewBinding_Capture.ivTaken, fileUri)
+                imstr = getBitmapToString(viewBinding_Capture.ivTaken, fileUri)
             }
         }
     }
