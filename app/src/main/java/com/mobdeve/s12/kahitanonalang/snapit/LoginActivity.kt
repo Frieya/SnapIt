@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         this.loginBtn.setOnClickListener {
-            val email = loginUsernameEtv.text.toString() + "@gmail.com"
+            val email = loginUsernameEtv.text.toString()
             val password = loginPasswordEtv.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {

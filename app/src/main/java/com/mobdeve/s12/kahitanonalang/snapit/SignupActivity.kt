@@ -38,7 +38,7 @@ class SignupActivity : AppCompatActivity() {
         this.auth = FirebaseAuth.getInstance()
 
         this.signupBtn.setOnClickListener {
-            val email = signUpUsernameEtv.text.toString() + "@gmail.com"
+            val email = signUpUsernameEtv.text.toString()
             val password = signupPasswordEtv.text.toString()
 
             toaster.crisp("Signing you up...")

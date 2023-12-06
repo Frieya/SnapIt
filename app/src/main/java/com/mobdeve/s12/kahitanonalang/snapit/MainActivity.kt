@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         this.recyclerView.layoutManager = layoutManager
 
         this.user = intent.getParcelableExtra<FirebaseUser>("auth")!!
-        val greeting = "Hello, ${this.user?.email?.replace("@gmail.com", "")}"
+        val greeting = "Hello, ${this.user?.email}"
         this.viewBinding.mainmenuGreetingTv.text = greeting
 
         this.editProfileBtn.setOnClickListener {
