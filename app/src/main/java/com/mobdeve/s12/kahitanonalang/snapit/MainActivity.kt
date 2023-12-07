@@ -9,6 +9,7 @@ import android.os.StrictMode
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var imageDataList : ArrayList<ImageData>
     private lateinit var recyclerView : RecyclerView
 
+    private lateinit var greetingTv : TextView
     private lateinit var editProfileBtn : ImageButton
     private lateinit var newCaptureBtn : FloatingActionButton
     private lateinit var myImageRecyclerAdapter: ImageFirestoreRecyclerAdapter
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         this.editProfileBtn = this.viewBinding.mainmenuEditProfileBtn
         this.newCaptureBtn = this.viewBinding.mainmenuFabtn
+        this.greetingTv = this.viewBinding.mainmenuGreetingTv
 
         val options = FirestoreRecyclerOptions.Builder<ImagePost>()
             .setQuery(dbHelper.getImageQuery(), ImagePost::class.java)
@@ -68,7 +71,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val layoutManager = GridLayoutManager(this, 2)
         viewBinding.mainmenuImageRv.layoutManager = layoutManager
 
+        this.greetingTv.text = "Hello, ${this.user.email}"
 
+        this.editProfileBtn.setOnClickListener {
+            val editProfileIntent = Intent(this, EditProfileActivity::class.java)
+            editProfileIntent.putExtra("auth", this.user)
+            startActivity(editProfileIntent)
+        }
 
         registerPictureLauncher()
 
@@ -111,8 +120,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(mainActivityIntent)
                 true
             }
-            R.id.nav_settings -> {
+            R.id.edit_profile_btn -> {
                 // change password
+                Log.d("test", "test")
                 val editProfileIntent = Intent(this, EditProfileActivity::class.java)
                 editProfileIntent.putExtra("auth", this.user)
                 startActivity(editProfileIntent)
