@@ -14,16 +14,19 @@ public class ImagePost{
     private  @ServerTimestamp Date timestamp;
     private String description;
 
+    private String user;
+
     public ImagePost(){
 
     }
 
-    public ImagePost(String id, String title, String image, Date timestamp, String description) {
+    public ImagePost(String id, String title, String image, Date timestamp, String description, String user) {
         this.id = id;
         this.title = title;
         this.image = image;
         this.timestamp = timestamp;
         this.description = description;
+        this.user = user;
     }
 
     public String getTitle() {
@@ -46,6 +49,10 @@ public class ImagePost{
         return id;
     }
 
+    public String getUser() {
+        return user;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -64,5 +71,9 @@ public class ImagePost{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

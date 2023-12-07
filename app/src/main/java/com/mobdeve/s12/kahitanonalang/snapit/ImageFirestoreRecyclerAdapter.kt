@@ -25,6 +25,7 @@ class ImageFirestoreRecyclerAdapter(options : FirestoreRecyclerOptions<ImagePost
             val context = it.context
             val intent = Intent(context, ViewCaptureActivity::class.java)
             intent.putExtra("DOC_ID", model.id)
+            intent.putExtra("USER", model.user)
             context.startActivity(intent)
         }
     }

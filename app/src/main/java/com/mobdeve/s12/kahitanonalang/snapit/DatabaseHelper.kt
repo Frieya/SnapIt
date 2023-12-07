@@ -36,7 +36,8 @@ class DatabaseHelper() {
                         document.id,
                         stringToBitmap(document.getString("image")!!),
                         document.getString("description")!!,
-                        document.getTimestamp("timestamp")!!
+                        document.getTimestamp("timestamp")!!,
+                        document.getString("user")!!
                     )
                     Log.d("bitmap", "" + image.title)
                     imageDataList.add(image)
@@ -61,7 +62,8 @@ class DatabaseHelper() {
                         documentId,
                         stringToBitmap(documentSnapshot.getString("image")!!),
                         documentSnapshot.getString("description")!!,
-                        documentSnapshot.getTimestamp("timestamp")!!
+                        documentSnapshot.getTimestamp("timestamp")!!,
+                        documentSnapshot.getString("user")!!
                     )
                     callback.onSingleImageDataLoaded(image)
                 } else {
@@ -74,12 +76,13 @@ class DatabaseHelper() {
             }
     }
 
-    fun addImage(title: String ,  image: String,  description: String){
+    fun addImage(title: String ,  image: String,  description: String, user: String){
         val data: MutableMap<String, Any?> = HashMap()
         data["title"] = title
         data["image"] = image
         data["description"] = description
         data["timestamp"] = FieldValue.serverTimestamp()
+        data["user"] = user
 
         // Send the data off to the Message collection
         this.db.collection("SampleImage").add(data)
@@ -95,6 +98,37 @@ class DatabaseHelper() {
             .orderBy("timestamp")
         return query
     }
+
+    fun getImageQueryForUser(user: String): Query {
+        val query = db
+            .collection("SampleImage")
+            .whereEqualTo("user", user)
+            .orderBy("timestamp")
+        return query
+    }
+
+    fun deleteImageDocument(documentId: String){
+        this.db.collection("SampleImage").document(documentId)
+            .delete()
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+    }
+
+    fun updateImageDocument(documentId: String, title: String, description: String) {
+        val docRef = db.collection("SampleImage").document(documentId)
+
+        // Update the timestamp field with the value from the server
+        val updates = hashMapOf<String, Any>(
+            "title" to title,
+            "description" to description
+        )
+
+        docRef.update(updates)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error updating document", e) }
+    }
+
+
 
     fun stringToBitmap(encodedString: String): Bitmap? {
         try {

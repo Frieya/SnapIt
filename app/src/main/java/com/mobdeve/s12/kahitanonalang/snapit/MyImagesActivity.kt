@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,6 +24,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
 import java.io.File
@@ -30,9 +33,9 @@ import java.io.File
 class MyImagesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var viewBinding : ActivityMainmenuBinding
     private lateinit var imageDataList : ArrayList<ImageData>
-    private lateinit var recyclerView : RecyclerView
 
-    private lateinit var editProfileBtn : ImageButton
+
+
     private lateinit var newCaptureBtn : FloatingActionButton
     private lateinit var myImageRecyclerAdapter: ImageFirestoreRecyclerAdapter
 
@@ -55,13 +58,12 @@ class MyImagesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 //        this.imageDataList.add(ImageData("test", ))
 
-        this.editProfileBtn = this.viewBinding.mainmenuEditProfileBtn
-        this.newCaptureBtn = this.viewBinding.mainmenuFabtn
 
+        this.newCaptureBtn = this.viewBinding.mainmenuFabtn
+        user = FirebaseAuth.getInstance().currentUser!!
         val options = FirestoreRecyclerOptions.Builder<ImagePost>()
-            .setQuery(dbHelper.getImageQuery(), ImagePost::class.java)
+            .setQuery(dbHelper.getImageQueryForUser(user.email.toString()), ImagePost::class.java)
             .build()
-        this.user = intent.getParcelableExtra<FirebaseUser>("auth")!!
         this.myImageRecyclerAdapter = ImageFirestoreRecyclerAdapter(options, user.email.toString())
         viewBinding.mainmenuImageRv.adapter = myImageRecyclerAdapter
 
@@ -87,6 +89,9 @@ class MyImagesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
         var navigationView = viewBinding.navView
+        val headerView : View = navigationView.getHeaderView(0)
+        val navUsername : TextView = headerView.findViewById(R.id.nav_username_tv)
+        navUsername.text = this.user.email!!.split("@")[0]
         var drawerLayout = viewBinding.myDrawerLayout
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
@@ -106,7 +111,7 @@ class MyImagesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_home -> {
-                val mainActivityIntent = Intent(this, MyImagesActivity::class.java)
+                val mainActivityIntent = Intent(this, MainActivity::class.java)
                 mainActivityIntent.putExtra("auth", this.user)
                 startActivity(mainActivityIntent)
                 true

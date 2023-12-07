@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -22,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 import com.google.firebase.auth.FirebaseUser
 import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityMainmenuBinding
 import java.io.File
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var imageDataList : ArrayList<ImageData>
     private lateinit var recyclerView : RecyclerView
 
-    private lateinit var greetingTv : TextView
-    private lateinit var editProfileBtn : ImageButton
+
+
     private lateinit var newCaptureBtn : FloatingActionButton
     private lateinit var myImageRecyclerAdapter: ImageFirestoreRecyclerAdapter
 
@@ -57,9 +57,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 //        this.imageDataList.add(ImageData("test", ))
 
-        this.editProfileBtn = this.viewBinding.mainmenuEditProfileBtn
         this.newCaptureBtn = this.viewBinding.mainmenuFabtn
-        this.greetingTv = this.viewBinding.mainmenuGreetingTv
+
 
         val options = FirestoreRecyclerOptions.Builder<ImagePost>()
             .setQuery(dbHelper.getImageQuery(), ImagePost::class.java)
@@ -71,13 +70,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val layoutManager = GridLayoutManager(this, 2)
         viewBinding.mainmenuImageRv.layoutManager = layoutManager
 
-        this.greetingTv.text = "Hello, ${this.user.email}"
 
-        this.editProfileBtn.setOnClickListener {
-            val editProfileIntent = Intent(this, EditProfileActivity::class.java)
-            editProfileIntent.putExtra("auth", this.user)
-            startActivity(editProfileIntent)
-        }
+
+
 
         registerPictureLauncher()
 
@@ -96,6 +91,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
         var navigationView = viewBinding.navView
+        val headerView : View = navigationView.getHeaderView(0)
+        val navUsername : TextView = headerView.findViewById(R.id.nav_username_tv)
+        navUsername.text = this.user.email!!.split("@")[0]
         var drawerLayout = viewBinding.myDrawerLayout
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 

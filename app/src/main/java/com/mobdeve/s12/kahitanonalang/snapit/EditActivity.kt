@@ -20,7 +20,7 @@ import com.mobdeve.s12.kahitanonalang.snapit.databinding.ActivityNewcaptureBindi
 import java.io.ByteArrayOutputStream
 
 
-class CaptureActivity : AppCompatActivity() {
+class EditActivity : AppCompatActivity() {
     private lateinit var viewBinding_Capture: ActivityNewcaptureBinding
 
     companion object {
@@ -43,16 +43,33 @@ class CaptureActivity : AppCompatActivity() {
         catch (e: Exception){
             e.printStackTrace()
         }
-        var user = FirebaseAuth.getInstance().currentUser
-        Log.v("Image User:", user?.displayName.toString())
-        imstr = getBitmapToString(viewBinding_Capture.newcaptureImageIv, fileUri)
         var db = DatabaseHelper()
+        var doc_id = intent.getStringExtra("DOC_ID").toString()
+        Log.v("DocId", doc_id)
+        db.getImageFromDocumentId(doc_id,
+            object : DatabaseHelper.SingleImageDataCallback {
+                override fun onSingleImageDataLoaded(image: ImageData) {
+                    viewBinding_Capture.newcaptureTitleTv.setText(image.title)
+                    viewBinding_Capture.newcaptureImageIv.setImageBitmap(image.bmp)
+                    viewBinding_Capture.newcaptureDescriptionTv.setText(image.description)
+                }
+
+                override fun onSingleImageDataLoadFailed(error: Throwable) {
+                    Log.v("GetImageError", "Hays")
+                // Handle the error, for example, show a toast message
+                }
+            }
+        )
+
+
+
+
         viewBinding_Capture.newcaptureSaveBtn.setOnClickListener{
             var title = viewBinding_Capture.newcaptureTitleTv.text.toString()
             var description = viewBinding_Capture.newcaptureDescriptionTv.text.toString()
-            db.addImage(title, imstr,description, user?.email.toString())
-            val captureIntent = Intent(this, MainActivity::class.java)
-            setResult(RESULT_OK, captureIntent)
+            db.updateImageDocument(doc_id,title, description)
+            val updateIntent = Intent(this, MainActivity::class.java)
+            startActivity(updateIntent)
             finish()
         }
     }
