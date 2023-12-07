@@ -76,6 +76,7 @@ class ViewCaptureActivity : AppCompatActivity() {
                 val updateIntent = Intent(this, EditActivity::class.java)
                 updateIntent.putExtra("DOC_ID", doc_id)
                 startActivity(updateIntent)
+                finish()
                 true
             }
             R.id.action_delete -> {

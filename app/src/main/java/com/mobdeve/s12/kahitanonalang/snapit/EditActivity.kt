@@ -69,7 +69,7 @@ class EditActivity : AppCompatActivity() {
             var description = viewBinding_Capture.newcaptureDescriptionTv.text.toString()
             db.updateImageDocument(doc_id,title, description)
             val updateIntent = Intent(this, MainActivity::class.java)
-            startActivity(updateIntent)
+//            startActivity(updateIntent)
             finish()
         }
     }
