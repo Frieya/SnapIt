@@ -2,11 +2,6 @@
  
 This is a **Minimum Viable Product (MVP)** for a data collection Android application created using Kotlin.
 
-## Features
-- Simple and intuitive user interface for efficient data entry.
-- Lightweight and optimized for Android devices.
-- Built with scalability in mind for future feature additions.
-
 ## Technology Stack
 - **Language:** Kotlin
 - **Platform:** Android
